@@ -7,14 +7,14 @@
   <!-- ============================================
        SEO
        ============================================ -->
-  <title>Theme Your Dream — Eventstyling met rust en regie</title>
-  <meta name="description" content="Theme Your Dream is de eventstyling studio van Dionne. Je hoeft nog geen plan te hebben: een idee is genoeg. Binnenkort meer over eventstyling en themaboxen.">
+  <title>Theme Your Dream — Dionne denkt met je mee</title>
+  <meta name="description" content="Theme Your Dream is de eventstyling studio van Dionne. Je hoeft nog geen plan te hebben, een idee is al genoeg. Binnenkort meer over eventstyling en themaboxen.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Theme Your Dream">
-  <meta property="og:title" content="Theme Your Dream — Eventstyling met rust en regie">
-  <meta property="og:description" content="Je hoeft nog geen plan te hebben. Een idee is genoeg. Dionne denkt met je mee en neemt de regie over.">
+  <meta property="og:title" content="Theme Your Dream — Dionne denkt met je mee">
+  <meta property="og:description" content="Je hoeft nog geen plan te hebben. Een idee is genoeg. Dionne denkt met je mee en neemt daarna de regie over.">
   <meta property="og:image" content="assets/logo/logo.png">
   <meta property="og:locale" content="nl_NL">
 
@@ -40,15 +40,20 @@
       <!-- ============================================
            Logo
            Vervang later uitsluitend assets/logo/logo.png
+           Wordt dit bestand niet gevonden, dan toont de pagina
+           automatisch een tekstuele merknaam in plaats van een
+           kapot beeldicoon (zie .brand__fallback in style.css).
            ============================================ -->
       <header class="brand">
         <img
           class="brand__logo"
           src="assets/logo/logo.png"
-          alt="Theme Your Dream — Event styling & verhuur"
-          width="480"
-          height="253"
+          alt="Theme Your Dream, eventstyling en verhuur"
+          width="720"
+          height="380"
+          onerror="this.classList.add('brand__logo--error')"
         >
+        <p class="brand__fallback" aria-hidden="true">Theme Your Dream</p>
       </header>
 
       <!-- ============================================
@@ -61,10 +66,11 @@
         </h1>
 
         <p class="hero__intro">
-          Een vaag beeld. Een sfeer. Een gevoel waar je iets mee wilt.
+          Misschien heb je alleen een sfeer in je hoofd, of een paar foto's
+          die je mooi vindt, zonder dat je weet hoe het samen moet komen.
           Dat is genoeg om mee te beginnen. Dionne luistert, denkt met je
-          mee en geeft jouw idee vorm — en neemt daarna de regie over,
-          zodat jij alleen nog maar hoeft te genieten.
+          mee en neemt het daarna van je over, zodat jij alleen nog hoeft
+          te genieten.
         </p>
 
         <p class="hero__question">
@@ -96,7 +102,6 @@
         <a class="site-footer__email" href="mailto:Dionne@ThemeYourDream.nl">
           Dionne@ThemeYourDream.nl
         </a>
-        <p class="site-footer__meta">Theme Your Dream &mdash; eventstyling &amp; verhuur</p>
       </footer>
 
     </div>

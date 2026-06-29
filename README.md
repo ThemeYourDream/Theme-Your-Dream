@@ -62,6 +62,31 @@ scherpte.
 Wil je ook de favicon vervangen? Plaats het nieuwe icoon op dezelfde manier
 onder dezelfde bestandsnamen in `assets/logo/`.
 
+### Logo wordt niet getoond op de live website
+
+Laadt het logo wel lokaal maar niet op de website, dan staat de afbeelding
+zelf goed in dit project en zit het probleem in de manier waarop de
+bestanden naar de server zijn gezet. Loop deze punten langs.
+
+1. **Is de map `assets` daadwerkelijk mee geüpload?** Veel hostingpanelen
+   tonen alleen `index.html` en `style.css` los, en de map `assets` moet
+   apart als geheel worden meegenomen. Controleer in het bestandsbeheer
+   van je hosting of `assets/logo/logo.png` echt op de server staat, op
+   exact dat pad.
+2. **Kloppen de bestandsnamen tot op de letter?** De meeste hosting is
+   hoofdlettergevoelig. `Logo.png` of `LOGO.PNG` werkt niet als de code
+   `logo.png` aanroept. Hernoem het bestand op de server zo nodig exact
+   naar `logo.png`, met kleine letters.
+3. **Staat de website in een submap?** Als je site bijvoorbeeld bereikbaar
+   is via `jouwdomein.nl/preview/`, dan moet de map `assets` zich in
+   dezelfde submap bevinden als `index.html`, niet in de hoofdmap van de
+   server.
+
+Tot het probleem is opgelost blijft de pagina overigens gewoon overeind
+staan: in plaats van een kapot beeldicoon toont de site automatisch de
+tekst "Theme Your Dream" in het koppenlettertype. Zo ziet de pagina nooit
+onafgewerkt uit, ook niet tijdens het uitzoeken van een hostingprobleem.
+
 ## Design — kleuren en typografie
 
 Het kleurenpalet is direct afgeleid van het officiële logo: donkerbruin en
@@ -119,3 +144,13 @@ persoonlijker ritme. CTA verruimd zodat hij als uitnodiging voelt in
 plaats van als knop. Zichtbare achtergrondtextuur vervangen door een
 nauwelijks waarneembare gradient. Coming-soon-lijst symmetrisch gemaakt
 op alle schermformaten.
+
+**V4 — Laatste polijstronde.** Logo nog eens 25 procent vergroot en op
+hogere resolutie aangeleverd voor scherpte op elk scherm. Een CSS-only
+fallback toegevoegd die de merknaam toont als het logobestand om wat voor
+reden dan ook niet laadt, zodat de pagina nooit kapot oogt. Introductie-
+tekst herschreven naar een directere, herkenbaardere beschrijving van het
+gevoel waarmee klanten vaak binnenkomen. Footerregel verwijderd die het
+logo alleen maar herhaalde. Achtergrond nog verder verzacht. CTA optisch
+verlicht zonder de kleur of het contrast aan te passen. Alle koppeltekens
+in lopende tekst gecontroleerd en waar nodig herschreven.

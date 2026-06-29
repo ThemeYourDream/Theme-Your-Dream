@@ -122,8 +122,8 @@ a {
   justify-content: center;
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(140, 146, 117, 0.04), transparent 60%),
-    radial-gradient(ellipse 80% 60% at 85% 100%, rgba(156, 100, 80, 0.045), transparent 60%);
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(140, 146, 117, 0.028), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 85% 100%, rgba(156, 100, 80, 0.032), transparent 60%);
 }
 
 
@@ -151,9 +151,29 @@ a {
 }
 
 .brand__logo {
-  width: 200px;
+  width: 250px;
   height: auto;
   margin: 0 auto;
+}
+
+/* Laadt assets/logo/logo.png onverwacht niet, dan verdwijnt het
+   gebroken beeldicoon volledig en verschijnt een rustige tekstuele
+   merknaam in plaats daarvan. Geen embedded logo, puur een vangnet. */
+.brand__logo--error {
+  display: none;
+}
+
+.brand__fallback {
+  display: none;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+}
+
+.brand__logo--error + .brand__fallback {
+  display: block;
 }
 
 
@@ -208,13 +228,13 @@ a {
   display: inline-block;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-bg);
   background-color: var(--color-button);
   text-decoration: none;
-  padding: 1.05rem 3rem;
+  padding: 1.05rem 3.25rem;
   border-radius: 999px;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.03em;
   transition: background-color 0.4s ease, transform 0.4s ease;
 }
 
@@ -317,14 +337,6 @@ a {
   outline-offset: 3px;
 }
 
-.site-footer__meta {
-  margin-top: var(--space-2);
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  color: var(--color-ink-faint);
-}
-
 
 /* ===================================================================
    10. Signature divider
@@ -390,11 +402,11 @@ a {
   }
 
   .brand {
-    margin-bottom: 5.5rem;
+    margin-bottom: 6.5rem;
   }
 
   .brand__logo {
-    width: 240px;
+    width: 300px;
   }
 
   .coming-soon__list {
@@ -410,11 +422,11 @@ a {
   }
 
   .brand {
-    margin-bottom: 6rem;
+    margin-bottom: 7rem;
   }
 
   .brand__logo {
-    width: 270px;
+    width: 338px;
   }
 }
 
@@ -425,7 +437,7 @@ a {
   }
 
   .brand__logo {
-    width: 280px;
+    width: 350px;
   }
 }
 
