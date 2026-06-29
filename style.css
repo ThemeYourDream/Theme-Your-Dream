@@ -1,31 +1,76 @@
-/* ============================================
-   Theme Your Dream — tijdelijke landingspagina
-   Token systeem:
-   Kleur:
-     --bg:        #F7F2EA  (warm off-white)
-     --ink:       #3B2E25  (donkerbruine tekst)
-     --ink-soft:  #6B5C4E  (zachtere bruine tekst)
-     --sage:      #7C8568  (natuurtint, accent / lijnen)
-     --sand:      #C9A77C  (zachte zandtint, knop)
-     --sand-dark: #B58F63  (knop hover)
-   Type:
-     Display: Fraunces (sierlijk, warm serif)
-     Body:    Work Sans (modern, leesbaar)
-   ============================================ */
+/* ===================================================================
+   Theme Your Dream — style.css
+   ===================================================================
+   Inhoudsopgave:
+   1. Design tokens (kleur, type, ruimte)
+   2. Reset & basis
+   3. Achtergrond
+   4. Layout / frame
+   5. Logo (brand)
+   6. Hero
+   7. Call to action
+   8. Binnenkort beschikbaar
+   9. Footer / contact
+   10. Signature divider
+   11. Accessibility helpers
+   12. Responsive breakpoints
+   =================================================================== */
+
+
+/* ===================================================================
+   1. Design tokens
+   -------------------------------------------------------------------
+   Kleurpalet uitsluitend warme natuurtinten, afgeleid van het
+   officiële logo (donkerbruin + oudroze) aangevuld met een stille
+   groentint als gevraagd. Geen zwart, geen spierwit, geen goud.
+   =================================================================== */
 
 :root {
-  --bg: #F7F2EA;
-  --ink: #3B2E25;
-  --ink-soft: #6B5C4E;
-  --sage: #7C8568;
-  --sand: #C9A77C;
-  --sand-dark: #B58F63;
+  /* Kleur — achtergrond */
+  --color-bg: #F8F3EC;          /* warme zand-beige, hoofdachtergrond */
+  --color-bg-soft: #F2EAE0;     /* iets dieper, voor textuur/secties */
 
+  /* Kleur — tekst */
+  --color-ink: #4A3528;         /* donkerbruin, hoofdtekst (uit logo) */
+  --color-ink-soft: #7C6553;    /* gedempt bruin, secundaire tekst */
+  --color-ink-faint: #7E6A55;   /* leesbare bruintint, labels (AA, 4.66:1) */
+
+  /* Kleur — accenten */
+  --color-rose: #9C6450;        /* oudroze/terracotta uit logo (AA, 4.37:1) */
+  --color-sage: #8C9275;        /* stille warme groentint, accent */
+  --color-button: #8C5F46;      /* knopkleur, warm zand/terracotta (AA, 4.95:1) */
+  --color-button-hover: #7A5240;
+
+  /* Lijnen / randen */
+  --color-line: rgba(74, 53, 40, 0.12);
+  --color-focus: #4A3528;
+
+  /* Typografie */
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Ruimte-eenheden (schaal van 4px) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+
+  /* Maximale leesbreedte */
+  --measure: 38rem;
 }
 
-* {
+
+/* ===================================================================
+   2. Reset & basis
+   =================================================================== */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -33,210 +78,362 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--ink);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Subtiele, organische achtergrondtint — geen afbeelding, puur gradient */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* ===================================================================
+   3. Achtergrond
+   -------------------------------------------------------------------
+   Geen zichtbare textuur, geen patroon — twee zeer zachte, brede
+   gradients geven het vlak diepte, zoals kwalitatief papier dat
+   het licht net iets anders weerkaatst dan een vlakke kleur.
+   Het effect mag niet bewust waarneembaar zijn.
+   =================================================================== */
+
 .page {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 6.5rem 1.5rem 4rem;
-  background:
-    radial-gradient(circle at 18% 8%, rgba(124, 133, 104, 0.07), transparent 42%),
-    radial-gradient(circle at 85% 92%, rgba(201, 167, 124, 0.10), transparent 45%),
-    var(--bg);
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(140, 146, 117, 0.04), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 85% 100%, rgba(156, 100, 80, 0.045), transparent 60%);
 }
+
+
+/* ===================================================================
+   4. Layout / frame
+   =================================================================== */
 
 .frame {
   width: 100%;
-  max-width: 38rem;
+  max-width: 40rem;
+  padding: var(--space-7) var(--space-3) var(--space-6);
   text-align: center;
 }
 
-.eyebrow {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 1.75rem;
+
+/* ===================================================================
+   5. Logo (brand)
+   -------------------------------------------------------------------
+   Eerste element dat bezoekers zien. Geen schaduw, geen animatie,
+   geen effecten — puur het logo met veel witruimte erondom.
+   =================================================================== */
+
+.brand {
+  margin-bottom: var(--space-8);
 }
 
-/* Signature element: een rustige, handgetekende golflijn —
-   verwijst naar drapering / styling, geen confetti */
-.motif {
-  width: 7.5rem;
-  height: 1.1rem;
-  margin: 0 auto 2.25rem;
-  display: block;
-  overflow: visible;
+.brand__logo {
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
 }
 
-.motif path {
-  fill: none;
-  stroke: var(--sage);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  opacity: 0.75;
-}
 
-.headline {
+/* ===================================================================
+   6. Hero
+   =================================================================== */
+
+.hero__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2.1rem, 7vw, 2.9rem);
-  line-height: 1.22;
+  font-size: clamp(1.9rem, 6.5vw, 2.75rem);
+  line-height: 1.38;
   letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 2rem;
+  color: var(--color-ink);
+  max-width: 22rem;
+  margin: 0 auto var(--space-6);
 }
 
-.headline em {
+.hero__title em {
   font-style: italic;
   font-weight: 400;
-  color: var(--sage);
+  color: var(--color-rose);
 }
 
-.lead {
-  font-size: 1.02rem;
+.hero__intro {
+  font-size: 1.05rem;
   font-weight: 300;
-  color: var(--ink-soft);
-  max-width: 30rem;
-  margin: 0 auto 2.25rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+  max-width: var(--measure);
+  margin: 0 auto var(--space-5);
 }
 
-.br-desktop {
-  display: none;
-}
-
-.prompt {
+.hero__question {
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 1.75rem;
+  color: var(--color-ink);
+  max-width: 26rem;
+  margin: 0 auto var(--space-5);
 }
+
+
+/* ===================================================================
+   7. Call to action
+   -------------------------------------------------------------------
+   Premium, afgeronde knop. Subtiele hover: lichte verticale beweging
+   en kleurverdieping. Geen schaduw, geen felle kleuren.
+   =================================================================== */
 
 .cta {
   display: inline-block;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--bg);
-  background-color: var(--sand);
+  color: var(--color-bg);
+  background-color: var(--color-button);
   text-decoration: none;
-  padding: 0.95rem 2.4rem;
+  padding: 1.05rem 3rem;
   border-radius: 999px;
-  letter-spacing: 0.01em;
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  letter-spacing: 0.015em;
+  transition: background-color 0.4s ease, transform 0.4s ease;
 }
 
 .cta:hover {
-  background-color: var(--sand-dark);
-  transform: translateY(-1px);
+  background-color: var(--color-button-hover);
+  transform: translateY(-2px);
 }
 
 .cta:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--color-focus);
   outline-offset: 4px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+
+  .cta:hover {
+    transform: none;
+  }
+}
+
+
+/* ===================================================================
+   8. Binnenkort beschikbaar
+   -------------------------------------------------------------------
+   Subtiele labels in plaats van drukke cards. Gescheiden door een
+   dunne lijn in plaats van een geometrisch blok.
+   =================================================================== */
+
 .coming-soon {
-  margin-top: 4.5rem;
-  padding-top: 2.75rem;
-  border-top: 1px solid rgba(59, 46, 37, 0.12);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  position: relative;
+}
+
+.coming-soon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-line);
 }
 
 .coming-soon__label {
   font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 1.4rem;
+  color: var(--color-ink-faint);
+  margin-bottom: var(--space-3);
 }
 
 .coming-soon__list {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
-  gap: 0.6rem 0.5rem;
+  gap: var(--space-3) var(--space-4);
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 400;
-  color: var(--ink);
+  color: var(--color-ink);
 }
 
-.coming-soon__list li {
-  position: relative;
-  padding: 0 0.9rem;
+.coming-soon__item {
+  text-align: center;
 }
 
-.coming-soon__list li:not(:last-child)::after {
-  content: "·";
-  position: absolute;
-  right: -0.15rem;
-  color: var(--sage);
+
+/* ===================================================================
+   9. Footer / contact
+   =================================================================== */
+
+.site-footer {
+  margin-top: var(--space-7);
 }
 
-.contact {
-  margin-top: 3.5rem;
-}
-
-.contact a {
-  color: var(--ink-soft);
+.site-footer__email {
+  display: inline-block;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 400;
+  color: var(--color-ink-soft);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.contact a:hover {
-  color: var(--ink);
-  border-color: var(--sage);
+.site-footer__email:hover {
+  color: var(--color-ink);
+  border-color: var(--color-sage);
 }
 
-.contact a:focus-visible {
-  outline: 2px solid var(--ink);
+.site-footer__email:focus-visible {
+  outline: 2px solid var(--color-focus);
   outline-offset: 3px;
 }
 
-/* ===== Tablet / Desktop ===== */
+.site-footer__meta {
+  margin-top: var(--space-2);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+}
+
+
+/* ===================================================================
+   10. Signature divider
+   -------------------------------------------------------------------
+   Vrij voor toekomstig gebruik op andere pagina's: een dunne,
+   organische lijn die het swoosh-detail uit het logo echoot. Hier
+   nog niet ingezet, maar als herbruikbare klasse beschikbaar zodat
+   vervolgpagina's dezelfde signatuur kunnen delen.
+   =================================================================== */
+
+.signature-line {
+  width: 7rem;
+  height: 1rem;
+  margin: 0 auto;
+  display: block;
+  overflow: visible;
+}
+
+.signature-line path {
+  fill: none;
+  stroke: var(--color-rose);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+
+
+/* ===================================================================
+   11. Accessibility helpers
+   =================================================================== */
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 0.4rem;
+  border: 1px solid var(--color-line);
+  font-size: 0.85rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: var(--space-2);
+  top: var(--space-2);
+}
+
+
+/* ===================================================================
+   12. Responsive breakpoints
+   -------------------------------------------------------------------
+   Mobile-first basis hierboven. Hier verfijning voor grotere
+   schermen: meer witruimte, groter logo, bredere maximale breedte
+   tot en met ultra-wide.
+   =================================================================== */
+
+/* Tablet (iPad portrait en groter) */
 @media (min-width: 640px) {
-  .page {
-    padding: 8rem 2rem 5rem;
+  .frame {
+    padding: var(--space-8) var(--space-4) var(--space-7);
   }
 
-  .br-desktop {
-    display: inline;
+  .brand {
+    margin-bottom: 5.5rem;
+  }
+
+  .brand__logo {
+    width: 240px;
   }
 
   .coming-soon__list {
-    gap: 0.75rem 0;
+    grid-template-columns: repeat(4, auto);
+    gap: 0 var(--space-4);
   }
 }
 
+/* Laptop */
 @media (min-width: 900px) {
   .frame {
-    max-width: 42rem;
+    max-width: 44rem;
+  }
+
+  .brand {
+    margin-bottom: 6rem;
+  }
+
+  .brand__logo {
+    width: 270px;
   }
 }
 
-/* ===== Reduced motion ===== */
-@media (prefers-reduced-motion: reduce) {
-  .cta {
-    transition: none;
+/* Desktop groot */
+@media (min-width: 1200px) {
+  .frame {
+    max-width: 46rem;
+  }
+
+  .brand__logo {
+    width: 280px;
+  }
+}
+
+/* Ultra-wide: voorkom dat de pagina visueel "verdrinkt" in lege
+   zijkanten — frame blijft leesbaar gecentreerd, achtergrond
+   vult de rest rustig op. */
+@media (min-width: 1800px) {
+  .frame {
+    max-width: 48rem;
   }
 }
