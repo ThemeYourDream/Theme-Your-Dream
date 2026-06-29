@@ -33,59 +33,44 @@ voor de komende jaren.
 
 ```
 /
-├── index.html              Landingspagina
-├── style.css                Alle styling, met design tokens in :root
-├── README.md                 Dit bestand
-│
-└── assets/
-    ├── logo/
-    │   ├── logo.png             Officieel logo (transparante achtergrond)
-    │   ├── favicon.png           Favicon, 32×32
-    │   ├── favicon_16.png        Favicon, 16×16
-    │   ├── favicon_32.png        Favicon, 32×32
-    │   └── apple-touch-icon.png  Icoon voor iOS / homescreen, 180×180
-    │
-    ├── images/                Vrij voor toekomstige paginafoto's
-    ├── icons/                 Vrij voor toekomstige UI-iconen
-    └── fonts/                 Vrij voor eventuele lokale fontbestanden
+├── index.html    Landingspagina
+├── style.css     Alle styling, met design tokens in :root
+├── logo.png      Officieel logo (transparante achtergrond)
+└── README.md     Dit bestand
 ```
+
+Alle bestanden staan plat in de hoofdmap van de repository. Eerdere versies
+van dit document beschreven een mapstructuur met een aparte `assets`-map.
+Die structuur is niet meegegaan naar GitHub, en de code is daarom
+aangepast naar de bestandsindeling die er nu werkelijk staat.
 
 ### Logo vervangen
 
-Wil je later een nieuw logo plaatsen? Vervang alleen het bestand
-`assets/logo/logo.png` door het nieuwe logobestand (zelfde naam). De rest
-van de code verandert niet mee, zolang de afbeelding een vergelijkbare
-verhouding (breed/hoog) heeft. Bij een sterk afwijkende verhouding kan het
-`width`/`height`-attribuut in `index.html` bijgewerkt worden voor de beste
-scherpte.
+Wil je later een nieuw logo plaatsen? Vervang het bestand `logo.png` door
+het nieuwe logobestand, met dezelfde naam. De rest van de code verandert
+niet mee, zolang de afbeelding een vergelijkbare verhouding (breed/hoog)
+heeft. Bij een sterk afwijkende verhouding kan het `width`/`height`-
+attribuut in `index.html` bijgewerkt worden voor de beste scherpte.
 
-Wil je ook de favicon vervangen? Plaats het nieuwe icoon op dezelfde manier
-onder dezelfde bestandsnamen in `assets/logo/`.
+Er is op dit moment geen los faviconbestand. De browser gebruikt `logo.png`
+ook als favicon en als icoon op het startscherm van mobiele toestellen. Wil
+je daarvoor op termijn een vierkant, strakker icoon, dan kan dat als apart
+bestand worden toegevoegd.
 
 ### Logo wordt niet getoond op de live website
 
-Laadt het logo wel lokaal maar niet op de website, dan staat de afbeelding
-zelf goed in dit project en zit het probleem in de manier waarop de
-bestanden naar de server zijn gezet. Loop deze punten langs.
+Komt dit later weer voor: controleer eerst of het bestand `logo.png`
+daadwerkelijk in de repository staat, op de hoofdmap, en of de naam exact
+overeenkomt met wat in `index.html` staat (`src="logo.png"`). De meeste
+hosting, waaronder Vercel, is hoofdlettergevoelig: `Logo.png` is niet
+hetzelfde bestand als `logo.png`.
 
-1. **Is de map `assets` daadwerkelijk mee geüpload?** Veel hostingpanelen
-   tonen alleen `index.html` en `style.css` los, en de map `assets` moet
-   apart als geheel worden meegenomen. Controleer in het bestandsbeheer
-   van je hosting of `assets/logo/logo.png` echt op de server staat, op
-   exact dat pad.
-2. **Kloppen de bestandsnamen tot op de letter?** De meeste hosting is
-   hoofdlettergevoelig. `Logo.png` of `LOGO.PNG` werkt niet als de code
-   `logo.png` aanroept. Hernoem het bestand op de server zo nodig exact
-   naar `logo.png`, met kleine letters.
-3. **Staat de website in een submap?** Als je site bijvoorbeeld bereikbaar
-   is via `jouwdomein.nl/preview/`, dan moet de map `assets` zich in
-   dezelfde submap bevinden als `index.html`, niet in de hoofdmap van de
-   server.
-
-Tot het probleem is opgelost blijft de pagina overigens gewoon overeind
-staan: in plaats van een kapot beeldicoon toont de site automatisch de
-tekst "Theme Your Dream" in het koppenlettertype. Zo ziet de pagina nooit
-onafgewerkt uit, ook niet tijdens het uitzoeken van een hostingprobleem.
+Tot een eventueel probleem is opgelost blijft de pagina overigens gewoon
+overeind staan: in plaats van een kapot beeldicoon toont de site
+automatisch de tekst "Theme Your Dream" in het koppenlettertype. Dat is
+een vangnet voor onderweg, geen vervanging voor het echte logo: zie je die
+tekstuele naam in plaats van het logo zelf, dan is dat het signaal dat
+`logo.png` niet gevonden wordt en actie nodig is.
 
 ## Design — kleuren en typografie
 
@@ -154,3 +139,12 @@ gevoel waarmee klanten vaak binnenkomen. Footerregel verwijderd die het
 logo alleen maar herhaalde. Achtergrond nog verder verzacht. CTA optisch
 verlicht zonder de kleur of het contrast aan te passen. Alle koppeltekens
 in lopende tekst gecontroleerd en waar nodig herschreven.
+
+**V5 — Logo daadwerkelijk gerepareerd.** De code verwees naar
+`assets/logo/logo.png`, maar die map was niet meegegaan naar de
+GitHub-repository: daar stond alleen een los bestand `logo.png` in de
+hoofdmap. Daardoor laadde het logo nooit, en verscheen steeds de
+tekstuele noodoplossing uit V4 in plaats van het echte logo. Alle
+verwijzingen in `index.html` en `style.css` zijn aangepast naar het pad
+waar het bestand daadwerkelijk staat. De projectstructuur in dit document
+is bijgewerkt naar de werkelijke, platte bestandsindeling.

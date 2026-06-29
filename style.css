@@ -156,7 +156,7 @@ a {
   margin: 0 auto;
 }
 
-/* Laadt assets/logo/logo.png onverwacht niet, dan verdwijnt het
+/* Laadt logo.png onverwacht niet, dan verdwijnt het
    gebroken beeldicoon volledig en verschijnt een rustige tekstuele
    merknaam in plaats daarvan. Geen embedded logo, puur een vangnet. */
 .brand__logo--error {
