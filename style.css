@@ -1,0 +1,242 @@
+/* ============================================
+   Theme Your Dream — tijdelijke landingspagina
+   Token systeem:
+   Kleur:
+     --bg:        #F7F2EA  (warm off-white)
+     --ink:       #3B2E25  (donkerbruine tekst)
+     --ink-soft:  #6B5C4E  (zachtere bruine tekst)
+     --sage:      #7C8568  (natuurtint, accent / lijnen)
+     --sand:      #C9A77C  (zachte zandtint, knop)
+     --sand-dark: #B58F63  (knop hover)
+   Type:
+     Display: Fraunces (sierlijk, warm serif)
+     Body:    Work Sans (modern, leesbaar)
+   ============================================ */
+
+:root {
+  --bg: #F7F2EA;
+  --ink: #3B2E25;
+  --ink-soft: #6B5C4E;
+  --sage: #7C8568;
+  --sand: #C9A77C;
+  --sand-dark: #B58F63;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtiele, organische achtergrondtint — geen afbeelding, puur gradient */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6.5rem 1.5rem 4rem;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(124, 133, 104, 0.07), transparent 42%),
+    radial-gradient(circle at 85% 92%, rgba(201, 167, 124, 0.10), transparent 45%),
+    var(--bg);
+}
+
+.frame {
+  width: 100%;
+  max-width: 38rem;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 1.75rem;
+}
+
+/* Signature element: een rustige, handgetekende golflijn —
+   verwijst naar drapering / styling, geen confetti */
+.motif {
+  width: 7.5rem;
+  height: 1.1rem;
+  margin: 0 auto 2.25rem;
+  display: block;
+  overflow: visible;
+}
+
+.motif path {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 7vw, 2.9rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+.headline em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--sage);
+}
+
+.lead {
+  font-size: 1.02rem;
+  font-weight: 300;
+  color: var(--ink-soft);
+  max-width: 30rem;
+  margin: 0 auto 2.25rem;
+}
+
+.br-desktop {
+  display: none;
+}
+
+.prompt {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1.75rem;
+}
+
+.cta {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--bg);
+  background-color: var(--sand);
+  text-decoration: none;
+  padding: 0.95rem 2.4rem;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.cta:hover {
+  background-color: var(--sand-dark);
+  transform: translateY(-1px);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.coming-soon {
+  margin-top: 4.5rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid rgba(59, 46, 37, 0.12);
+}
+
+.coming-soon__label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+}
+
+.coming-soon__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.coming-soon__list li {
+  position: relative;
+  padding: 0 0.9rem;
+}
+
+.coming-soon__list li:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -0.15rem;
+  color: var(--sage);
+}
+
+.contact {
+  margin-top: 3.5rem;
+}
+
+.contact a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.contact a:hover {
+  color: var(--ink);
+  border-color: var(--sage);
+}
+
+.contact a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ===== Tablet / Desktop ===== */
+@media (min-width: 640px) {
+  .page {
+    padding: 8rem 2rem 5rem;
+  }
+
+  .br-desktop {
+    display: inline;
+  }
+
+  .coming-soon__list {
+    gap: 0.75rem 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .frame {
+    max-width: 42rem;
+  }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+}
