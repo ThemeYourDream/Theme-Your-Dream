@@ -60,6 +60,12 @@
       </div>
     </section>
 
+    <!-- Golf: pagina-achtergrond → eventstyling-zand -->
+    <svg class="story-wave" id="wave-intro-es" viewBox="0 0 1440 180"
+         preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs id="wave-intro-es-defs"></defs>
+    </svg>
+
     <!-- ============================================
          Sectie 3: Eventstyling, groot blok
          ============================================ -->
@@ -75,6 +81,12 @@
         <a class="cta" href="eventstyling.html">Ontdek eventstyling</a>
       </div>
     </section>
+
+    <!-- Golf: eventstyling-zand → themaboxen-roos -->
+    <svg class="story-wave" id="wave-es-tb" viewBox="0 0 1440 180"
+         preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs id="wave-es-tb-defs"></defs>
+    </svg>
 
     <!-- ============================================
          Sectie 4: Themaboxen, groot blok
@@ -92,9 +104,16 @@
       </div>
     </section>
 
+    <!-- Golf: themaboxen-roos → over dionne-zand -->
+    <svg class="story-wave" id="wave-tb-od" viewBox="0 0 1440 180"
+         preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs id="wave-tb-od-defs"></defs>
+    </svg>
+
     <!-- ============================================
          Sectie 5: Over Dionne, kort
          ============================================ -->
+    <div style="background: #F2EAE0; width: 100%;">
     <section class="section section--narrow">
       <div class="content-block">
         <span class="section__eyebrow">Over Dionne</span>
@@ -105,13 +124,16 @@
           de dag zelf.
         </p>
         <div style="margin-top: var(--space-4)">
-          <a class="service-card__link" href="over_dionne.html">Lees meer over Dionne</a>
+          <a class="cta" href="over_dionne.html">Lees meer over Dionne</a>
         </div>
       </div>
     </section>
+    </div>
 
-    <svg class="section-divider" viewBox="0 0 160 24" aria-hidden="true">
-      <path d="M2 12 C 40 2, 60 22, 80 12 S 120 2, 158 12" />
+    <!-- Golf: over dionne-zand → pagina-achtergrond -->
+    <svg class="story-wave" id="wave-od-wk" viewBox="0 0 1440 180"
+         preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs id="wave-od-wk-defs"></defs>
     </svg>
 
     <!-- ============================================
@@ -166,5 +188,47 @@
     <p class="site-footer__meta">Eventstyling en verhuur</p>
   </footer>
 
+  <script>
+  (function () {
+    function buildWave(svgId, from, to) {
+      var svg  = document.getElementById(svgId);
+      var defs = document.getElementById(svgId + '-defs');
+      if (!svg || !defs) return;
+      var ns = 'http://www.w3.org/2000/svg';
+      var N = 150, W = 1440, H = 180, A = 38, C = 85, B = 55;
+      for (var i = 0; i < N; i++) {
+        var t  = i / (N - 1);
+        var wY = C + A * Math.sin(t * Math.PI * 2);
+        var id = svgId + '-' + i;
+        var g  = document.createElementNS(ns, 'linearGradient');
+        g.setAttribute('id', id);
+        g.setAttribute('gradientUnits', 'userSpaceOnUse');
+        g.setAttribute('x1', '0'); g.setAttribute('y1', '0');
+        g.setAttribute('x2', '0'); g.setAttribute('y2', H);
+        [[0, from], [wY, from], [wY + B, to], [H, to]].forEach(function (p) {
+          var s = document.createElementNS(ns, 'stop');
+          s.setAttribute('offset', (p[0] / H * 100).toFixed(2) + '%');
+          s.setAttribute('stop-color', p[1]);
+          g.appendChild(s);
+        });
+        defs.appendChild(g);
+        var r = document.createElementNS(ns, 'rect');
+        r.setAttribute('x', (i * W / N).toFixed(2));
+        r.setAttribute('y', '0');
+        r.setAttribute('width', (W / N + 0.5).toFixed(2));
+        r.setAttribute('height', H);
+        r.setAttribute('fill', 'url(#' + id + ')');
+        svg.appendChild(r);
+      }
+    }
+
+    buildWave('wave-intro-es', '#F8F3EC', '#F2EAE0');
+    buildWave('wave-es-tb',    '#F2EAE0', '#E3CABF');
+    buildWave('wave-tb-od',    '#E3CABF', '#F2EAE0');
+    buildWave('wave-od-wk',    '#F2EAE0', '#F8F3EC');
+  })();
+  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
