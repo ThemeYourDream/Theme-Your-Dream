@@ -1,13 +1,19 @@
 /* ===================================================================
-   Theme Your Dream — style.css
+   Theme Your Dream — style.css (concept, meerpaginasite)
    ===================================================================
    Inhoudsopgave:
    1. Design tokens (kleur, type, ruimte)
    2. Reset & basis
    3. Achtergrond
-   4. Layout / frame
+   4. Layout / frame / section
    5. Logo (brand)
+   5b. Site header & navigatie
    6. Hero
+   6b. Pagina hero (subpagina's)
+   6c. Dienstblokken
+   6d. Werkwijze
+   6e. Sfeerplaceholders
+   6f. Tekstblokken en lijsten
    7. Call to action
    8. Binnenkort beschikbaar
    9. Footer / contact
@@ -43,7 +49,13 @@
 
   /* Lijnen / randen */
   --color-line: rgba(74, 53, 40, 0.12);
+  --color-line-soft: rgba(74, 53, 40, 0.08);
   --color-focus: #4A3528;
+  --color-card-bg: #FBF8F3;
+
+  /* Layout */
+  --header-height: 4.5rem;
+  --content-width: 72rem;
 
   /* Typografie */
   --font-display: "Fraunces", Georgia, serif;
@@ -118,8 +130,6 @@ a {
 
 .page {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
   background-color: var(--color-bg);
   background-image:
     radial-gradient(ellipse 80% 60% at 20% 0%, rgba(140, 146, 117, 0.028), transparent 60%),
@@ -134,8 +144,62 @@ a {
 .frame {
   width: 100%;
   max-width: 40rem;
+  margin: 0 auto;
   padding: var(--space-7) var(--space-3) var(--space-6);
   text-align: center;
+}
+
+/* Bredere container voor secties die meer ruimte nodig hebben
+   dan een enkele kolom lopende tekst, zoals dienstblokken en
+   sfeerkaarten naast elkaar. */
+.section {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-3);
+}
+
+.section--narrow {
+  max-width: 40rem;
+}
+
+.section--tight {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+.section__heading {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+.section__eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  margin-bottom: var(--space-2);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  line-height: 1.3;
+  color: var(--color-ink);
+  max-width: 32rem;
+  margin: 0 auto var(--space-3);
+}
+
+.section__lead {
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+  max-width: var(--measure);
+  margin: 0 auto;
 }
 
 
@@ -178,6 +242,181 @@ a {
 
 
 /* ===================================================================
+   5b. Site header & navigatie
+   -------------------------------------------------------------------
+   Subtiele, vaste header met klein logo en navigatie. Blijft rustig:
+   geen schaduw, dunne onderrand, transparante achtergrond die de
+   achtergrondtint van de pagina doorlaat.
+   =================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--space-3);
+  background-color: rgba(248, 243, 236, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-line-soft);
+}
+
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-header__logo img {
+  width: 92px;
+  height: auto;
+}
+
+.site-header__logo-text {
+  display: none;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: 0.01em;
+}
+
+.site-header__nav {
+  display: none;
+}
+
+.site-header__nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.site-header__nav-link {
+  font-size: 0.92rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--color-ink-soft);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.site-header__nav-link:hover {
+  color: var(--color-ink);
+  border-color: var(--color-sage);
+}
+
+.site-header__nav-link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.site-header__nav-link[aria-current="page"] {
+  color: var(--color-ink);
+  border-color: var(--color-rose);
+}
+
+/* Mobiel menu-knop */
+.site-header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.site-header__toggle span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background-color: var(--color-ink);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.site-header__toggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.site-header__toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header__toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header__toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobiel uitklapmenu */
+.mobile-nav {
+  position: fixed;
+  inset: var(--header-height) 0 0 0;
+  z-index: 40;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-nav__link {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--color-ink);
+}
+
+.mobile-nav__link[aria-current="page"] {
+  color: var(--color-rose);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav,
+  .site-header__toggle span {
+    transition: none;
+  }
+}
+
+@media (min-width: 860px) {
+  .site-header__nav {
+    display: block;
+  }
+
+  .site-header__toggle {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+}
+
+
+/* ===================================================================
    6. Hero
    =================================================================== */
 
@@ -214,6 +453,293 @@ a {
   color: var(--color-ink);
   max-width: 26rem;
   margin: 0 auto var(--space-5);
+}
+
+
+/* ===================================================================
+   6b. Pagina hero (subpagina's)
+   -------------------------------------------------------------------
+   Kleinere, rustigere variant van de homepage hero, voor gebruik
+   bovenaan Eventstyling, Themaboxen en Over Dionne.
+   =================================================================== */
+
+.page-hero {
+  text-align: center;
+  padding: var(--space-6) var(--space-3) var(--space-5);
+  max-width: 38rem;
+  margin: 0 auto;
+}
+
+.page-hero__eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  margin-bottom: var(--space-3);
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  margin-bottom: var(--space-4);
+}
+
+.page-hero__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-rose);
+}
+
+.page-hero__lead {
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+
+
+/* ===================================================================
+   6c. Dienstblokken
+   -------------------------------------------------------------------
+   Twee gelijkwaardige kaarten: Eventstyling en Themaboxen. Rustige
+   vlakken zonder schaduw, met een dunne rand en ruime binnenmarge.
+   =================================================================== */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.service-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-line-soft);
+  border-radius: 1.25rem;
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--color-rose);
+  transform: translateY(-3px);
+}
+
+.service-card:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.service-card__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.service-card__text {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-3);
+}
+
+.service-card__link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-rose);
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card {
+    transition: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .service-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* ===================================================================
+   6d. Werkwijze
+   -------------------------------------------------------------------
+   Rustige stappen, benoemd in woorden in plaats van met opzichtige
+   01/02/03 cijfers — het zijn losse aandachtspunten in de manier
+   van werken, geen strikte genummerde procedure.
+   =================================================================== */
+
+.process {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.process__step {
+  text-align: center;
+  padding: 0 var(--space-2);
+}
+
+.process__step-label {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-rose);
+  margin-bottom: var(--space-2);
+}
+
+.process__step-text {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 700px) {
+  .process {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ===================================================================
+   6e. Sfeerplaceholders
+   -------------------------------------------------------------------
+   Rustige placeholder kaarten in plaats van foto's: een zacht vlak
+   met een dunne rand en een korte omschrijving van het toekomstige
+   beeld. Geen stockfoto's, geen felle kleuren.
+   =================================================================== */
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.mood-card {
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3);
+  background:
+    linear-gradient(160deg, rgba(140, 146, 117, 0.05), rgba(156, 100, 80, 0.05));
+}
+
+.mood-card__text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 700px) {
+  .mood-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ===================================================================
+   6f. Tekstblokken en lijsten in lopende content
+   =================================================================== */
+
+.content-block {
+  max-width: var(--measure);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-block__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
+}
+
+.content-block__text {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+
+.content-block__text + .content-block__text {
+  margin-top: var(--space-3);
+}
+
+.feature-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2) var(--space-4);
+  max-width: 34rem;
+  margin: var(--space-4) auto 0;
+  text-align: left;
+}
+
+.feature-list__item {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.96rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.feature-list__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-sage);
+}
+
+@media (min-width: 600px) {
+  .feature-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.section-divider {
+  width: 7rem;
+  height: 1rem;
+  margin: var(--space-6) auto;
+  display: block;
+  overflow: visible;
+}
+
+.section-divider path {
+  fill: none;
+  stroke: var(--color-rose);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.5;
 }
 
 
@@ -315,6 +841,17 @@ a {
 
 .site-footer {
   margin-top: var(--space-7);
+  padding: var(--space-6) var(--space-3) var(--space-5);
+  text-align: center;
+  border-top: 1px solid var(--color-line-soft);
+}
+
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
 }
 
 .site-footer__email {
@@ -335,6 +872,39 @@ a {
 .site-footer__email:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;
+}
+
+.site-footer__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.site-footer__social a {
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--color-ink-faint);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.site-footer__social a:hover {
+  color: var(--color-ink);
+  border-color: var(--color-sage);
+}
+
+.site-footer__social a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.site-footer__meta {
+  margin-top: var(--space-4);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--color-ink-faint);
 }
 
 
@@ -413,6 +983,14 @@ a {
     grid-template-columns: repeat(4, auto);
     gap: 0 var(--space-4);
   }
+
+  .section {
+    padding: var(--space-7) var(--space-4);
+  }
+
+  .page-hero {
+    padding: var(--space-7) var(--space-4) var(--space-6);
+  }
 }
 
 /* Laptop */
@@ -427,6 +1005,10 @@ a {
 
   .brand__logo {
     width: 338px;
+  }
+
+  .section {
+    padding: var(--space-8) var(--space-4);
   }
 }
 
