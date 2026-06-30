@@ -1,19 +1,21 @@
 /* ===================================================================
-   Theme Your Dream — style.css (concept, meerpaginasite)
+   Theme Your Dream — style.css (concept, scrollend verhaal)
    ===================================================================
    Inhoudsopgave:
    1. Design tokens (kleur, type, ruimte)
    2. Reset & basis
    3. Achtergrond
    4. Layout / frame / section
-   5. Logo (brand)
-   5b. Site header & navigatie
+   5. Logo (brand, homepage hero)
+   5b. Site header (logo only, geen menu)
+   5c. Zachte verwijzing onderaan subpagina's
    6. Hero
    6b. Pagina hero (subpagina's)
-   6c. Dienstblokken
+   6c. Dienstblokken (compact, gebruikt op Over Dionne)
    6d. Werkwijze
-   6e. Sfeerplaceholders
-   6f. Tekstblokken en lijsten
+   6e. Story sections (Eventstyling / Themaboxen op homepage)
+   6f. Sfeerplaceholders
+   6g. Tekstblokken en lijsten
    7. Call to action
    8. Binnenkort beschikbaar
    9. Footer / contact
@@ -242,11 +244,16 @@ a {
 
 
 /* ===================================================================
-   5b. Site header & navigatie
+   5b. Site header
    -------------------------------------------------------------------
-   Subtiele, vaste header met klein logo en navigatie. Blijft rustig:
-   geen schaduw, dunne onderrand, transparante achtergrond die de
-   achtergrondtint van de pagina doorlaat.
+   Geen navigatiebalk, geen menu. Alleen een klein, klikbaar logo
+   bovenaan, dat teruglinkt naar de homepage. Het logo bestand bevat
+   ook het opschrift "Theme Your Dream" en "Event styling & verhuur"
+   onder het TYD-monogram; voor de kleine header tonen we via een
+   vaste hoogte en object-position alleen het bovenste monogram, zo
+   blijft het herkenbaar zonder rommelig te ogen op klein formaat.
+   Er bestaat maar één logo bestand (logo.png) zodat er nooit een
+   tweede asset kan ontbreken.
    =================================================================== */
 
 .site-header {
@@ -255,164 +262,91 @@ a {
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: var(--header-height);
   padding: 0 var(--space-3);
-  background-color: rgba(248, 243, 236, 0.92);
+  background-color: rgba(248, 243, 236, 0.85);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--color-line-soft);
 }
 
 .site-header__logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+  border-radius: 0.4rem;
+}
+
+.site-header__logo:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
 }
 
 .site-header__logo img {
-  width: 92px;
-  height: auto;
+  width: 130px;
+  height: 42px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .site-header__logo-text {
   display: none;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--color-ink);
   letter-spacing: 0.01em;
 }
 
-.site-header__nav {
-  display: none;
+
+/* ===================================================================
+   5c. Zachte verwijzing onderaan subpagina's
+   -------------------------------------------------------------------
+   Vervangt een klassiek menu op de subpagina's: een rustig blokje
+   onderaan dat doorverwijst naar de andere twee pagina's.
+   =================================================================== */
+
+.also-see {
+  text-align: center;
+  padding: var(--space-6) var(--space-3) var(--space-5);
+  border-top: 1px solid var(--color-line-soft);
+  margin-top: var(--space-6);
 }
 
-.site-header__nav-list {
-  list-style: none;
+.also-see__label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  margin-bottom: var(--space-3);
+}
+
+.also-see__links {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: var(--space-4);
 }
 
-.site-header__nav-link {
-  font-size: 0.92rem;
+.also-see__links a {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
   font-weight: 400;
   text-decoration: none;
-  color: var(--color-ink-soft);
-  padding-bottom: 2px;
+  color: var(--color-ink);
   border-bottom: 1px solid transparent;
   transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-.site-header__nav-link:hover {
-  color: var(--color-ink);
-  border-color: var(--color-sage);
-}
-
-.site-header__nav-link:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 3px;
-}
-
-.site-header__nav-link[aria-current="page"] {
-  color: var(--color-ink);
+.also-see__links a:hover {
+  color: var(--color-rose);
   border-color: var(--color-rose);
 }
 
-/* Mobiel menu-knop */
-.site-header__toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.site-header__toggle span {
-  display: block;
-  width: 22px;
-  height: 1px;
-  background-color: var(--color-ink);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.site-header__toggle:focus-visible {
+.also-see__links a:focus-visible {
   outline: 2px solid var(--color-focus);
-  outline-offset: 4px;
-}
-
-.site-header__toggle[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.site-header__toggle[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
-}
-
-.site-header__toggle[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-/* Mobiel uitklapmenu */
-.mobile-nav {
-  position: fixed;
-  inset: var(--header-height) 0 0 0;
-  z-index: 40;
-  background-color: var(--color-bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-4);
-  transform: translateY(-8px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.mobile-nav.is-open {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.mobile-nav__link {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-decoration: none;
-  color: var(--color-ink);
-}
-
-.mobile-nav__link[aria-current="page"] {
-  color: var(--color-rose);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mobile-nav,
-  .site-header__toggle span {
-    transition: none;
-  }
-}
-
-@media (min-width: 860px) {
-  .site-header__nav {
-    display: block;
-  }
-
-  .site-header__toggle {
-    display: none;
-  }
-
-  .mobile-nav {
-    display: none;
-  }
+  outline-offset: 3px;
 }
 
 
@@ -615,13 +549,81 @@ a {
 
 @media (min-width: 700px) {
   .process {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
   }
 }
 
 
 /* ===================================================================
-   6e. Sfeerplaceholders
+   6e. Story sections (homepage)
+   -------------------------------------------------------------------
+   Grote, op zichzelf staande secties voor Eventstyling en Themaboxen
+   op de homepage. Geen kaartjes, maar volle, rustige vlakken met een
+   zachte eigen ondertoon, ruime tekst en één duidelijke knop. Twee
+   varianten wisselen subtiel van ondertoon (zand / oudroze) zodat de
+   twee secties van elkaar te onderscheiden zijn zonder hard contrast.
+   =================================================================== */
+
+.story-section {
+  padding: var(--space-7) var(--space-3);
+  text-align: center;
+}
+
+.story-section--sand {
+  background-color: var(--color-bg-soft);
+}
+
+.story-section--rose {
+  background:
+    linear-gradient(180deg, rgba(156, 100, 80, 0.06), rgba(156, 100, 80, 0.02));
+}
+
+.story-section__inner {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.story-section__eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #73604A;
+  margin-bottom: var(--space-3);
+}
+
+.story-section__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 6vw, 2.5rem);
+  line-height: 1.3;
+  color: var(--color-ink);
+  margin-bottom: var(--space-4);
+}
+
+.story-section__text {
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-5);
+}
+
+.story-section .cta {
+  padding: 1rem 2.75rem;
+}
+
+@media (min-width: 900px) {
+  .story-section {
+    padding: var(--space-8) var(--space-4);
+  }
+}
+
+
+/* ===================================================================
+   6f. Sfeerplaceholders
    -------------------------------------------------------------------
    Rustige placeholder kaarten in plaats van foto's: een zacht vlak
    met een dunne rand en een korte omschrijving van het toekomstige
@@ -662,7 +664,7 @@ a {
 
 
 /* ===================================================================
-   6f. Tekstblokken en lijsten in lopende content
+   6g. Tekstblokken en lijsten in lopende content
    =================================================================== */
 
 .content-block {

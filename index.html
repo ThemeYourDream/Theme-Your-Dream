@@ -19,41 +19,19 @@
   <a class="skip-link" href="#main-content">Direct naar inhoud</a>
 
   <!-- ============================================
-       Header & navigatie
+       Header: alleen logo, geen menu
        ============================================ -->
   <header class="site-header">
     <a class="site-header__logo" href="index.html" aria-label="Theme Your Dream, terug naar home">
-      <img src="logo-mark.png" alt="Theme Your Dream" width="714" height="225" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <img src="logo.png" alt="Theme Your Dream" width="720" height="380" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
       <span class="site-header__logo-text" style="display:none">Theme Your Dream</span>
     </a>
-
-    <nav class="site-header__nav" aria-label="Hoofdnavigatie">
-      <ul class="site-header__nav-list">
-        <li><a class="site-header__nav-link" href="index.html" aria-current="page">Home</a></li>
-        <li><a class="site-header__nav-link" href="eventstyling.html">Eventstyling</a></li>
-        <li><a class="site-header__nav-link" href="themaboxen.html">Themaboxen</a></li>
-        <li><a class="site-header__nav-link" href="over-dionne.html">Over Dionne</a></li>
-      </ul>
-    </nav>
-
-    <button class="site-header__toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu openen">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </header>
-
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobiele navigatie">
-    <a class="mobile-nav__link" href="index.html" aria-current="page">Home</a>
-    <a class="mobile-nav__link" href="eventstyling.html">Eventstyling</a>
-    <a class="mobile-nav__link" href="themaboxen.html">Themaboxen</a>
-    <a class="mobile-nav__link" href="over-dionne.html">Over Dionne</a>
-  </nav>
 
   <main id="main-content" class="page">
 
     <!-- ============================================
-         Hero
+         Sectie 1: hero
          ============================================ -->
     <div class="frame">
       <section class="hero" aria-label="Introductie">
@@ -65,60 +43,70 @@
         <p class="hero__question">
           Jij geniet van het moment. Wij zorgen dat alles klopt.
         </p>
-
-        <a class="cta" href="mailto:Dionne@ThemeYourDream.nl">
-          Vertel Dionne jouw idee
-        </a>
       </section>
     </div>
 
     <!-- ============================================
-         Korte introductie
+         Sectie 2: korte introductie
          ============================================ -->
-    <section class="section section--narrow">
+    <section class="section section--narrow section--tight">
       <div class="content-block">
         <p class="content-block__text">
-          Theme Your Dream is de eventstyling studio van Dionne. Geen losse
-          spullen bij elkaar zoeken, maar een geheel dat klopt. Of je nu
-          alleen een sfeer in je hoofd hebt of al een paar ideeën, Dionne
-          denkt mee, maakt het concreet en regelt de rest.
+          Theme Your Dream is de eventstyling studio van Dionne. Geen
+          losse spullen bij elkaar zoeken, maar een geheel dat klopt.
+          Of je nu alleen een sfeer in je hoofd hebt of al een paar
+          ideeën, Dionne denkt mee en maakt het concreet.
         </p>
       </div>
     </section>
 
-    <svg class="section-divider" viewBox="0 0 160 24" aria-hidden="true">
-      <path d="M2 12 C 40 2, 60 22, 80 12 S 120 2, 158 12" />
-    </svg>
+    <!-- ============================================
+         Sectie 3: Eventstyling, groot blok
+         ============================================ -->
+    <section class="story-section story-section--sand">
+      <div class="story-section__inner">
+        <span class="story-section__eyebrow">Eventstyling</span>
+        <h2 class="story-section__title">Een feest dat klopt, tot in de kleinste details</h2>
+        <p class="story-section__text">
+          Van tafel tot backdrop, van kleur tot materiaal. Dionne
+          kleedt jouw feest of evenement compleet aan, met oog voor
+          de details die het verschil maken.
+        </p>
+        <a class="cta" href="eventstyling.html">Ontdek eventstyling</a>
+      </div>
+    </section>
 
     <!-- ============================================
-         Dienstblokken
+         Sectie 4: Themaboxen, groot blok
          ============================================ -->
-    <section class="section">
-      <div class="section__heading">
-        <span class="section__eyebrow">Wat we doen</span>
-        <h2 class="section__title">Twee manieren om te beginnen</h2>
+    <section class="story-section story-section--rose">
+      <div class="story-section__inner">
+        <span class="story-section__eyebrow">Themaboxen</span>
+        <h2 class="story-section__title">Zelf aankleden, zonder zelf te zoeken</h2>
+        <p class="story-section__text">
+          Een verzorgde, complete box om je feest zelf mee aan te
+          kleden. Alles is al bij elkaar gezocht en op elkaar
+          afgestemd, jij hoeft alleen nog uit te pakken.
+        </p>
+        <a class="cta" href="themaboxen.html">Bekijk themaboxen</a>
       </div>
+    </section>
 
-      <div class="service-grid">
-        <a class="service-card" href="eventstyling.html">
-          <h3 class="service-card__title">Eventstyling</h3>
-          <p class="service-card__text">
-            Complete aankleding van jouw feest of evenement. Van tafel
-            tot backdrop, van kleur tot materiaal. Dionne denkt mee en
-            zorgt dat het geheel klopt.
-          </p>
-          <span class="service-card__link">Bekijk eventstyling</span>
-        </a>
-
-        <a class="service-card" href="themaboxen.html">
-          <h3 class="service-card__title">Themaboxen</h3>
-          <p class="service-card__text">
-            Een verzorgde, stijlvolle box om zelf mee aan de slag te
-            gaan. Alles is al bij elkaar gezocht, jij hoeft alleen nog
-            uit te pakken.
-          </p>
-          <span class="service-card__link">Bekijk themaboxen</span>
-        </a>
+    <!-- ============================================
+         Sectie 5: Over Dionne, kort
+         ============================================ -->
+    <section class="section section--narrow">
+      <div class="content-block">
+        <span class="section__eyebrow">Over Dionne</span>
+        <h2 class="content-block__title" style="margin-top: var(--space-2)">De persoon achter Theme Your Dream</h2>
+        <p class="content-block__text">
+          Theme Your Dream is het werk van één persoon. Rustig,
+          verzorgd en met oog voor detail, van het eerste gesprek tot
+          de dag zelf.
+        </p>
+        <div style="margin-top: var(--space-4)">
+          <a class="service-card__link" href="over_dionne.html">Lees meer over Dionne</a>
+        </div>
       </div>
     </section>
 
@@ -127,7 +115,7 @@
     </svg>
 
     <!-- ============================================
-         Werkwijze
+         Sectie 6: werkwijze
          ============================================ -->
     <section class="section section--narrow">
       <div class="section__heading">
@@ -138,78 +126,34 @@
       <div class="process">
         <div class="process__step">
           <span class="process__step-label">Vertellen</span>
-          <p class="process__step-text">
-            Je deelt je idee, sfeer of gevoel. Een uitgewerkt plan is
-            niet nodig.
-          </p>
+          <p class="process__step-text">Jij deelt je idee.</p>
         </div>
         <div class="process__step">
           <span class="process__step-label">Meedenken</span>
-          <p class="process__step-text">
-            Dionne maakt het concreet en stelt voor wat bij jou en je
-            gelegenheid past.
-          </p>
+          <p class="process__step-text">Dionne denkt mee.</p>
         </div>
         <div class="process__step">
-          <span class="process__step-label">Genieten</span>
-          <p class="process__step-text">
-            Alles wordt geregeld en klaargezet, zodat jij kan genieten
-            van het moment zelf.
-          </p>
+          <span class="process__step-label">Concreet</span>
+          <p class="process__step-text">De stijl wordt concreet.</p>
+        </div>
+        <div class="process__step">
+          <span class="process__step-label">Verzorgd</span>
+          <p class="process__step-text">Alles wordt verzorgd.</p>
         </div>
       </div>
     </section>
 
-    <svg class="section-divider" viewBox="0 0 160 24" aria-hidden="true">
-      <path d="M2 12 C 40 2, 60 22, 80 12 S 120 2, 158 12" />
-    </svg>
-
     <!-- ============================================
-         Sfeerblok (placeholders)
+         Sectie 7: afsluitende call to action
          ============================================ -->
-    <section class="section">
-      <div class="section__heading">
-        <span class="section__eyebrow">Sfeer</span>
-        <h2 class="section__title">Een eerste indruk</h2>
-        <p class="section__lead">
-          Hier komt later echt werk van Dionne te staan. Voorlopig een
-          indruk van de sfeer waar Theme Your Dream voor staat.
-        </p>
-      </div>
-
-      <div class="mood-grid">
-        <div class="mood-card"><p class="mood-card__text">Linnen tafelaankleding</p></div>
-        <div class="mood-card"><p class="mood-card__text">Kaarslicht</p></div>
-        <div class="mood-card"><p class="mood-card__text">Bloemen</p></div>
-        <div class="mood-card"><p class="mood-card__text">Natuurlijke materialen</p></div>
-      </div>
-    </section>
-
-    <svg class="section-divider" viewBox="0 0 160 24" aria-hidden="true">
-      <path d="M2 12 C 40 2, 60 22, 80 12 S 120 2, 158 12" />
-    </svg>
-
-    <!-- ============================================
-         Verwijzing naar Over Dionne
-         ============================================ -->
-    <section class="section section--narrow">
-      <div class="content-block">
-        <h2 class="content-block__title">Wie er achter Theme Your Dream staat</h2>
-        <p class="content-block__text">
-          Theme Your Dream is het werk van één persoon: Dionne. Rustig,
-          verzorgd en met oog voor detail.
-        </p>
-        <div style="margin-top: var(--space-4)">
-          <a class="service-card__link" href="over-dionne.html">Lees meer over Dionne</a>
-        </div>
-      </div>
+    <section class="section section--narrow" style="text-align:center; padding-top: var(--space-8); padding-bottom: var(--space-8)">
+      <a class="cta" href="mailto:Dionne@ThemeYourDream.nl">
+        Vertel Dionne jouw idee
+      </a>
     </section>
 
   </main>
 
-  <!-- ============================================
-       Footer
-       ============================================ -->
   <footer class="site-footer">
     <p class="site-footer__brand">Theme Your Dream</p>
     <a class="site-footer__email" href="mailto:Dionne@ThemeYourDream.nl">
@@ -222,6 +166,5 @@
     <p class="site-footer__meta">Eventstyling en verhuur</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>

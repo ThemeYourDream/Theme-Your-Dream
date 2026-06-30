@@ -20,32 +20,10 @@
 
   <header class="site-header">
     <a class="site-header__logo" href="index.html" aria-label="Theme Your Dream, terug naar home">
-      <img src="logo-mark.png" alt="Theme Your Dream" width="714" height="225" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <img src="logo.png" alt="Theme Your Dream" width="720" height="380" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
       <span class="site-header__logo-text" style="display:none">Theme Your Dream</span>
     </a>
-
-    <nav class="site-header__nav" aria-label="Hoofdnavigatie">
-      <ul class="site-header__nav-list">
-        <li><a class="site-header__nav-link" href="index.html">Home</a></li>
-        <li><a class="site-header__nav-link" href="eventstyling.html" aria-current="page">Eventstyling</a></li>
-        <li><a class="site-header__nav-link" href="themaboxen.html">Themaboxen</a></li>
-        <li><a class="site-header__nav-link" href="over-dionne.html">Over Dionne</a></li>
-      </ul>
-    </nav>
-
-    <button class="site-header__toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu openen">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </header>
-
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobiele navigatie">
-    <a class="mobile-nav__link" href="index.html">Home</a>
-    <a class="mobile-nav__link" href="eventstyling.html" aria-current="page">Eventstyling</a>
-    <a class="mobile-nav__link" href="themaboxen.html">Themaboxen</a>
-    <a class="mobile-nav__link" href="over-dionne.html">Over Dionne</a>
-  </nav>
 
   <main id="main-content" class="page">
 
@@ -117,24 +95,19 @@
       <div class="process">
         <div class="process__step">
           <span class="process__step-label">Vertellen</span>
-          <p class="process__step-text">
-            Je deelt je idee, sfeer of gevoel. Een uitgewerkt plan is
-            niet nodig.
-          </p>
+          <p class="process__step-text">Jij deelt je idee.</p>
         </div>
         <div class="process__step">
           <span class="process__step-label">Meedenken</span>
-          <p class="process__step-text">
-            Dionne maakt het concreet en stelt voor wat bij jou en je
-            gelegenheid past.
-          </p>
+          <p class="process__step-text">Dionne denkt mee.</p>
         </div>
         <div class="process__step">
-          <span class="process__step-label">Genieten</span>
-          <p class="process__step-text">
-            Alles wordt geregeld en klaargezet, zodat jij kan genieten
-            van het moment zelf.
-          </p>
+          <span class="process__step-label">Concreet</span>
+          <p class="process__step-text">De stijl wordt concreet.</p>
+        </div>
+        <div class="process__step">
+          <span class="process__step-label">Verzorgd</span>
+          <p class="process__step-text">Alles wordt verzorgd.</p>
         </div>
       </div>
     </section>
@@ -169,6 +142,17 @@
       </a>
     </section>
 
+    <!-- ============================================
+         Zachte verwijzing, geen menu
+         ============================================ -->
+    <nav class="also-see" aria-label="Andere pagina's">
+      <span class="also-see__label">Ook bekijken</span>
+      <div class="also-see__links">
+        <a href="themaboxen.html">Themaboxen</a>
+        <a href="over_dionne.html">Over Dionne</a>
+      </div>
+    </nav>
+
   </main>
 
   <footer class="site-footer">
@@ -183,6 +167,5 @@
     <p class="site-footer__meta">Eventstyling en verhuur</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
