@@ -24,5 +24,5 @@ De site heeft geen navigatiemenu. Elke pagina heeft een kale header met alleen h
 - Geen AI-toon: geen woorden als "ontdek", "beleef", "uniek", "passie", "op maat" of andere marketingclichés.
 - Geen koppeltekens in lopende tekst (gebruik komma's of herschrijf de zin).
 - De contactknop heet altijd: **Vertel Dionne jouw idee**
-- Geen bullets of lijsten in de zichtbare tekst op de site.
+- Geen bullet-bolletjes. Gebruik in plaats daarvan `<ul class="feature-list">` met `<li class="feature-list__item">` — dit is het goedgekeurde patroon dat bullet-bolletjes vervangt door een verticale lijst met dunne scheidingsregels.
 - Geen genummerde stappen (geen 01/02/03-opmaak).

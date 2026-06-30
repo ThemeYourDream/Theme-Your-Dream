@@ -28,7 +28,7 @@ Meld zinnen in de zichtbare tekst waar een koppelteken (-) als leesteken in lope
 De contactknop moet altijd exact de tekst "Vertel Dionne jouw idee" bevatten. Meld het als de tekst afwijkt of als er een andere formulering voor het contactformulier of e-maillink wordt gebruikt.
 
 **7. Bullets en lijsten**
-Visuele lijsten (`<ul>`, `<ol>`) zijn niet toegestaan in de zichtbare pagina-inhoud buiten navigatie. Meld het als er `<ul>` of `<ol>` in `<main>` staat.
+Bullet-bolletjes zijn niet toegestaan. Het goedgekeurde alternatief is `<ul class="feature-list">` met `<li class="feature-list__item">` — dit is een verticale lijst met dunne scheidingsregels zonder bolletjes. Meld het alleen als er een `<ul>` of `<ol>` in `<main>` staat die NIET de class `feature-list` heeft, of als er een `<ol>` wordt gebruikt.
 
 **8. Genummerde stappen**
 Geen 01/02/03-opmaak of andere expliciete nummering in stapteksten. Meld het als stapnummers zichtbaar zijn in de tekst.
