@@ -56,7 +56,7 @@
   --color-card-bg: #FBF8F3;
 
   /* Layout */
-  --header-height: 4.5rem;
+  --header-height: 5.5rem;
   --content-width: 72rem;
 
   /* Typografie */
@@ -147,7 +147,7 @@ a {
   width: 100%;
   max-width: 40rem;
   margin: 0 auto;
-  padding: var(--space-7) var(--space-3) var(--space-6);
+  padding: var(--space-7) var(--space-3) var(--space-4);
   text-align: center;
 }
 
@@ -282,8 +282,8 @@ a {
 }
 
 .site-header__logo img {
-  width: 130px;
-  height: 42px;
+  width: 200px;
+  height: 70px;
   object-fit: cover;
   object-position: top center;
   display: block;
@@ -362,7 +362,7 @@ a {
   letter-spacing: -0.01em;
   color: var(--color-ink);
   max-width: 22rem;
-  margin: 0 auto var(--space-6);
+  margin: 0 auto var(--space-4);
 }
 
 .hero__title em {
@@ -386,7 +386,7 @@ a {
   font-weight: 500;
   color: var(--color-ink);
   max-width: 26rem;
-  margin: 0 auto var(--space-5);
+  margin: 0 auto var(--space-4);
 }
 
 
@@ -575,8 +575,12 @@ a {
 }
 
 .story-section--rose {
-  background:
-    linear-gradient(180deg, rgba(156, 100, 80, 0.06), rgba(156, 100, 80, 0.02));
+  background: #E3CABF;
+}
+
+.story-wave {
+  display: block;
+  width: 100%;
 }
 
 .story-section__inner {
