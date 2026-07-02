@@ -366,7 +366,7 @@ a {
   line-height: 1.38;
   letter-spacing: -0.01em;
   color: var(--color-ink);
-  max-width: 22rem;
+  max-width: 28rem;
   margin: 0 auto var(--space-4);
 }
 
@@ -1113,6 +1113,11 @@ a {
     padding: var(--space-8) var(--space-4) var(--space-7);
   }
 
+  .section--tight {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
   .brand {
     margin-bottom: 6.5rem;
   }
@@ -1139,6 +1144,11 @@ a {
 @media (min-width: 900px) {
   .frame {
     max-width: 58rem;
+  }
+
+  .section--tight {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
   }
 
   .brand {
