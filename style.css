@@ -1092,6 +1092,15 @@ a {
     padding: var(--space-8) var(--space-4);
   }
 
+  .site-header {
+    height: 6.5rem;
+  }
+
+  .site-header__logo img {
+    width: 280px;
+    height: 95px;
+  }
+
   .section--narrow {
     max-width: 52rem;
   }
