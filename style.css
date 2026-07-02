@@ -988,12 +988,11 @@ a {
   border-top: 1px solid var(--color-line-soft);
 }
 
-.site-footer__brand {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--color-ink);
-  margin-bottom: var(--space-3);
+.site-footer__logo {
+  width: 140px;
+  height: auto;
+  margin: 0 auto var(--space-3);
+  display: block;
 }
 
 .site-footer__email {
