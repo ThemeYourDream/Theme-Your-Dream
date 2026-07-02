@@ -35,15 +35,15 @@
 
 :root {
   /* Kleur — achtergrond */
-  --color-bg: #F8F3EC;          /* warme zand-beige, hoofdachtergrond */
-  --color-bg-soft: #F2EAE0;     /* iets dieper, voor textuur/secties */
+  --color-bg: #F5EDE3;          /* warme zand-beige, hoofdachtergrond */
+  --color-bg-soft: #EBD9CB;     /* iets dieper, voor textuur/secties */
 
   /* Sectieachtergronden — ook gebruikt in JS-golfanimatie.
      Alle drie op één centrale plek zodat kleurwijzigingen
      nooit door HTML en JS gesynchroniseerd hoeven te worden. */
-  --color-warm-cream: #F8F3EC;  /* identiek aan --color-bg */
-  --color-soft-sand:  #F2EAE0;  /* identiek aan --color-bg-soft */
-  --color-muted-rose: #E3CABF;  /* licht oud-roze, themaboxen-sectie */
+  --color-warm-cream: #F5EDE3;  /* identiek aan --color-bg */
+  --color-soft-sand:  #EBD9CB;  /* identiek aan --color-bg-soft */
+  --color-muted-rose: #D4AFA0;  /* oud-roze, themaboxen-sectie */
 
   /* Kleur — tekst */
   --color-ink: #4A3528;         /* donkerbruin, hoofdtekst (uit logo) */
@@ -272,7 +272,7 @@ a {
   justify-content: center;
   height: var(--header-height);
   padding: 0 var(--space-3);
-  background-color: rgba(248, 243, 236, 0.85);
+  background-color: rgba(245, 237, 227, 0.85); /* --color-bg at 85% */
   backdrop-filter: blur(6px);
 }
 
