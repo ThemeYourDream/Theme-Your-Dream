@@ -529,7 +529,6 @@ a {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
-  max-width: 46rem;
   margin: 0 auto;
 }
 
@@ -1187,7 +1186,7 @@ a {
 /* Desktop groot */
 @media (min-width: 1200px) {
   .frame {
-    max-width: 64rem;
+    max-width: 72rem;
   }
 
   .brand__logo {
@@ -1195,15 +1194,15 @@ a {
   }
 
   .section--narrow {
-    max-width: 58rem;
+    max-width: 68rem;
   }
 
   .story-section__inner {
-    max-width: 58rem;
+    max-width: 68rem;
   }
 
   .content-block {
-    max-width: 54rem;
+    max-width: 60rem;
   }
 }
 
@@ -1212,14 +1211,18 @@ a {
    vult de rest rustig op. */
 @media (min-width: 1800px) {
   .frame {
-    max-width: 70rem;
+    max-width: 84rem;
   }
 
   .section--narrow {
-    max-width: 62rem;
+    max-width: 76rem;
   }
 
   .story-section__inner {
-    max-width: 62rem;
+    max-width: 76rem;
+  }
+
+  .content-block {
+    max-width: 68rem;
   }
 }
