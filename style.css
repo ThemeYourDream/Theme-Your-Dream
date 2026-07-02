@@ -755,8 +755,9 @@ a {
   padding-bottom: var(--space-8);
 }
 
-.section--cta .section__lead {
-  margin-bottom: var(--space-4);
+.section--cta .section__lead,
+.section--cta-padded .section__lead {
+  margin-bottom: var(--space-5);
 }
 
 /* Hero-logo: visueel anker boven de merkzin op de homepage.
