@@ -34,6 +34,14 @@
          Sectie 1: hero
          ============================================ -->
     <div class="frame">
+      <img
+        src="logo.png"
+        class="hero__logo"
+        alt="Theme Your Dream"
+        width="720"
+        height="380"
+        onerror="this.style.display='none'"
+      >
       <section class="hero" aria-label="Introductie">
         <h1 class="hero__title">
           Je hoeft nog geen plan te hebben.<br>
@@ -52,16 +60,15 @@
     <section class="section section--narrow section--tight">
       <div class="content-block">
         <p class="content-block__text">
-          Theme Your Dream is de eventstyling studio van Dionne. Geen
-          losse spullen bij elkaar zoeken, maar een geheel dat klopt.
-          Of je nu alleen een sfeer in je hoofd hebt of al een paar
-          ideeën, Dionne denkt mee en maakt het concreet.
+          Je weet hoe je het wilt voelen, maar waar je precies moet
+          beginnen, dat is een ander verhaal. Dionne denkt mee en
+          maakt het concreet.
         </p>
       </div>
     </section>
 
     <!-- Sfeerfoto homepage -->
-    <section class="section" style="padding-top: 0; padding-bottom: 0;">
+    <section class="section section--photo">
       <img
         src="Tafelstyling met linnen.png"
         alt="Gedekte tafel met linnen tafelkleed, kaarsen, witte bloemen en gouden bestek onder een lichtjesplafond"
@@ -148,9 +155,9 @@
           height="756"
         >
         <span class="story-section__eyebrow">Over Dionne</span>
-        <h2 class="story-section__title">De persoon achter Theme Your Dream</h2>
+        <h2 class="story-section__title">Jij praat altijd met Dionne zelf</h2>
         <p class="story-section__text">
-          Jij praat met de persoon die ook daadwerkelijk aanwezig is op de dag zelf.
+          Niet met een assistent. Dionne is aanwezig bij de voorbereiding en op de dag zelf.
         </p>
         <a class="cta" href="over_dionne.html">Lees meer over Dionne</a>
       </div>
@@ -194,9 +201,9 @@
     <!-- ============================================
          Sectie 7: afsluitende call to action
          ============================================ -->
-    <section class="section section--narrow" style="text-align:center; padding-top: var(--space-8); padding-bottom: var(--space-8)">
-      <p class="section__lead" style="margin-bottom: var(--space-4)">
-        Je hoeft het nog niet helemaal uitgedacht te hebben. Stuur gewoon een berichtje.
+    <section class="section section--narrow section--cta-padded">
+      <p class="section__lead">
+        Op de dag zelf hoef je nergens aan te denken. Dat gevoel begint met één berichtje.
       </p>
       <a class="cta" href="mailto:Dionne@ThemeYourDream.nl">
         Vertel Dionne jouw idee
@@ -251,10 +258,15 @@
       }
     }
 
-    buildWave('wave-intro-es', '#F8F3EC', '#F2EAE0');
-    buildWave('wave-es-tb',    '#F2EAE0', '#E3CABF');
-    buildWave('wave-tb-od',    '#E3CABF', '#F2EAE0');
-    buildWave('wave-od-wk',    '#F2EAE0', '#F8F3EC');
+    var cs = getComputedStyle(document.documentElement);
+    var cream    = cs.getPropertyValue('--color-warm-cream').trim();
+    var sand     = cs.getPropertyValue('--color-soft-sand').trim();
+    var rose     = cs.getPropertyValue('--color-muted-rose').trim();
+
+    buildWave('wave-intro-es', cream, sand);
+    buildWave('wave-es-tb',    sand,  rose);
+    buildWave('wave-tb-od',    rose,  sand);
+    buildWave('wave-od-wk',    sand,  cream);
   })();
   </script>
 

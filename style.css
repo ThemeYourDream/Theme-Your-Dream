@@ -38,6 +38,13 @@
   --color-bg: #F8F3EC;          /* warme zand-beige, hoofdachtergrond */
   --color-bg-soft: #F2EAE0;     /* iets dieper, voor textuur/secties */
 
+  /* Sectieachtergronden — ook gebruikt in JS-golfanimatie.
+     Alle drie op één centrale plek zodat kleurwijzigingen
+     nooit door HTML en JS gesynchroniseerd hoeven te worden. */
+  --color-warm-cream: #F8F3EC;  /* identiek aan --color-bg */
+  --color-soft-sand:  #F2EAE0;  /* identiek aan --color-bg-soft */
+  --color-muted-rose: #E3CABF;  /* licht oud-roze, themaboxen-sectie */
+
   /* Kleur — tekst */
   --color-ink: #4A3528;         /* donkerbruin, hoofdtekst (uit logo) */
   --color-ink-soft: #7C6553;    /* gedempt bruin, secundaire tekst */
@@ -575,7 +582,7 @@ a {
 }
 
 .story-section--rose {
-  background: #E3CABF;
+  background: var(--color-muted-rose);
 }
 
 .story-wave {
@@ -679,6 +686,14 @@ a {
   }
 }
 
+@media (min-width: 1200px) {
+  .mood-grid {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 
 /* ===================================================================
    6g. Tekstblokken en lijsten in lopende content
@@ -726,6 +741,49 @@ a {
   border-bottom: 1px solid var(--color-line);
 }
 
+/* Herbruikbare layout-helpers — vervangt veelgebruikte inline styles */
+
+.section--photo {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section--cta {
+  text-align: center;
+}
+
+.section--cta-padded {
+  text-align: center;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+.section--cta .section__lead {
+  margin-bottom: var(--space-4);
+}
+
+/* Hero-logo: visueel anker boven de merkzin op de homepage.
+   Kleiner dan de header-variant zodat de hero compact blijft. */
+.hero__logo {
+  width: 160px;
+  height: auto;
+  margin: 0 auto var(--space-4);
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .hero__logo {
+    width: 200px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero__logo {
+    width: 240px;
+  }
+}
+
+
 /* ===================================================================
    6h. Site-foto's
    -------------------------------------------------------------------
@@ -743,7 +801,13 @@ a {
 }
 
 .site-photo--cinematic {
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 4 / 3;   /* mobiel: sfeer behouden, geen dunne strook */
+}
+
+@media (min-width: 640px) {
+  .site-photo--cinematic {
+    aspect-ratio: 21 / 9; /* tablet/desktop: breed cinematografisch */
+  }
 }
 
 .site-photo--landscape {
