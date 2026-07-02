@@ -272,8 +272,12 @@ a {
   justify-content: center;
   height: var(--header-height);
   padding: 0 var(--space-3);
-  background-color: rgba(237, 225, 210, 0.88); /* --color-bg at 88% */
-  backdrop-filter: blur(6px);
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.site-header__logo {
+  pointer-events: auto;
 }
 
 .site-header__logo {
