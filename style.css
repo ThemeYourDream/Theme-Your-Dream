@@ -1053,6 +1053,37 @@ a {
   color: var(--color-ink-faint);
 }
 
+.site-footer__legal {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-ink-faint);
+  line-height: 1.7;
+}
+
+.site-footer__legal a {
+  color: var(--color-ink-faint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.site-footer__legal a:hover {
+  color: var(--color-ink);
+}
+
+.site-footer__legal-links {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
 
 /* ===================================================================
    10. Signature divider
