@@ -681,6 +681,71 @@ a {
   color: var(--color-ink-soft);
 }
 
+.mood-card--link {
+  position: relative;
+  text-decoration: none;
+  display: block;
+}
+
+.mood-card--link:hover .mood-card__img,
+.mood-card--link:focus-visible .mood-card__img {
+  transform: scale(1.04);
+  transition: transform 0.35s ease;
+}
+
+.mood-card__img {
+  transition: transform 0.35s ease;
+}
+
+.mood-card__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-3) var(--space-3) var(--space-4);
+  background: linear-gradient(to top, rgba(74, 51, 41, 0.7) 0%, transparent 100%);
+  color: #F7F1EA;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0 0 0.75rem 0.75rem;
+  text-align: center;
+}
+
+/* Box detailpagina: prijs/borg/periode blok */
+.box-meta {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  background-color: var(--color-bg-soft);
+  border-radius: 0.75rem;
+  padding: var(--space-4) var(--space-5);
+}
+
+.box-meta__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 8rem;
+}
+
+.box-meta__label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.box-meta__value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
 @media (min-width: 700px) {
   .mood-grid {
     grid-template-columns: repeat(4, 1fr);
