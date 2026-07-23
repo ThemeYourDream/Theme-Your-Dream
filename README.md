@@ -148,3 +148,4 @@ tekstuele noodoplossing uit V4 in plaats van het echte logo. Alle
 verwijzingen in `index.html` en `style.css` zijn aangepast naar het pad
 waar het bestand daadwerkelijk staat. De projectstructuur in dit document
 is bijgewerkt naar de werkelijke, platte bestandsindeling.
+# Trigger concept-site deployment Thu Jul 23 19:27:02     2026
